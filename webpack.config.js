@@ -15,7 +15,7 @@ module.exports = {
     output: {
         path: PATHS.build,
         filename: 'dist.js',
-        library: 'IonicForms',
+        library: 'IonicDoge',
         libraryTarget: 'umd'
     },
     externals: [
