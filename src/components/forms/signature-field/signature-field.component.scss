@@ -1,0 +1,43 @@
+ion-doge-signature {
+    .signature-field {
+        margin-top: 30px;
+    }
+        
+    .label {
+        font-size: $item-md-font-size !important;
+        color: $label-md-text-color;
+        font-weight: normal;
+        text-transform: none;
+        margin: 13px 0;
+    }
+
+    > .has-focus > .label {
+        color: color($colors, primary);
+    }
+
+    .signature {
+        object-fit: contain;
+    }
+
+    .signature-box {
+        box-sizing: border-box;
+        width: 100%;
+        border: 2px solid $list-border-color;
+    }
+
+    &.ng-invalid.ng-touched .signature-box {
+        border-color: $text-input-highlight-color-invalid;
+    }
+
+    &.ng-valid.ng-touched.ng-dirty .signature-box {
+        border-color: $text-input-highlight-color-valid;
+    }
+
+    > .has-focus > .signature-box {
+        border-color: color($colors, primary) !important;
+    }
+}
+
+.ios ion-doge-signature {
+    
+}
