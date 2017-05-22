@@ -1,6 +1,6 @@
 {
   "name": "ionic-doge",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Doge Lord",
   "main": "dist/dist.js",
   "homepage": "https://github.com/doge-lord/ionic-doge",
