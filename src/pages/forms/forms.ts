@@ -16,7 +16,8 @@ export class FormsPage {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.email],
-      signature: ['', Validators.required]
+      signature: ['', Validators.required],
+      phoneNumber: ['']
     });
 
     console.log(this.sampleImage);

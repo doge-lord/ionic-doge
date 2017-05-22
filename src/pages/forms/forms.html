@@ -9,17 +9,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form [formGroup]="form" (submit)="submit(form)">
-    <ion-item>
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" formControlName="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Email</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
-    </ion-item>
-    <ion-doge-signature formControlName="signature" label="Signature" [readonly]="false"></ion-doge-signature>
-    <button ion-button full type="submit" color="primary">Submit</button>
+    <ion-list>
+      <ion-list-header no-margin>
+        Action
+      </ion-list-header>
+      <ion-item padding-horizontal>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item padding-horizontal>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item class="item-signature" padding-left>
+        <ion-doge-signature formControlName="signature" label="Signature" [readonly]="false"></ion-doge-signature>
+      </ion-item>
+      <ion-item padding-horizontal>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input type="text" formControlName="phoneNumber"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button block type="submit" color="primary">Submit</button>
+      </div>
+    </ion-list>
   </form>
 </ion-content>

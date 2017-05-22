@@ -1,5 +1,5 @@
 <div class="signature-field" [ngClass]="{'has-focus': hasFocus}">
-    <div *ngIf="label" class="label">{{ label }}</div>
+    <div *ngIf="label" class="signature-label">{{ label }}</div>
     <div class="signature-box" (window:resize)="beResponsive()" #signatureFieldContainer>
         <div *ngIf="!readonly">
             <signature-pad [options]="options" (onBeginEvent)="drawBegin()" (onEndEvent)="drawComplete()"></signature-pad>
