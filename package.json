@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "author": "Doge Lord",
   "homepage": "",
-  "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
