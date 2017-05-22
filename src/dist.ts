@@ -1,1 +1,1 @@
-export { IonicDogeModule } from './components/ionic-doge.module';
+export { IonicDogeComponentsModule } from './components/ionic-doge-components.module';

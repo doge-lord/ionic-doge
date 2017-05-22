@@ -21,4 +21,4 @@ import { SignatureField } from './forms/signature-field/signature-field.componen
     SignatureField
   ]
 })
-export class IonicDogeModule { }
+export class IonicDogeComponentsModule { }

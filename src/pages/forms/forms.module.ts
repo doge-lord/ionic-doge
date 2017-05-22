@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { IonicDogeModule } from '../../components/ionic-doge.module';
+import { IonicDogeComponentsModule } from '../../components/ionic-doge-components.module';
 
 import { FormsPage } from './forms';
-
 
 @NgModule({
   declarations: [
     FormsPage,
   ],
   imports: [
-    IonicDogeModule,
+    IonicDogeComponentsModule,
     IonicPageModule.forChild(FormsPage),
   ],
   exports: [
