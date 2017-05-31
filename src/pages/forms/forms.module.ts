@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { IonicDogeComponentsModule } from '../../components/ionic-doge-components.module';
+import { IonicDogeModule } from '../../ionic-doge.module';
 
 import { FormsPage } from './forms';
 
@@ -9,7 +9,7 @@ import { FormsPage } from './forms';
     FormsPage,
   ],
   imports: [
-    IonicDogeComponentsModule,
+    IonicDogeModule,
     IonicPageModule.forChild(FormsPage),
   ],
   exports: [

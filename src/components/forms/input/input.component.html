@@ -1,0 +1,24 @@
+<div class="ion-doge-input">
+    <div *ngIf="formGroup" [formGroup]="formGroup">
+        <ion-item>
+            <ion-label floating text-capitalize>
+                <span>{{ label || controlName }}</span>
+                <span *ngIf="required"> *</span>
+            </ion-label>
+            <ion-input type="text" [formControlName]="controlName"></ion-input>
+        </ion-item>
+    </div>
+    <div class="helper-text" [ngClass]="{ 'error': linkedFormControl.touched && linkedFormControl.invalid }">
+        <span #helperText><ng-content select="[helper-text]"></ng-content></span>
+        <span *ngIf="linkedFormControl.touched && linkedFormControl.invalid">
+            <span *ngIf="hasHelperText">
+                <span *ngIf="linkedFormControl.hasError('required')">, Required</span>
+            </span>
+            <span *ngIf="!hasHelperText">
+                <span *ngIf="linkedFormControl.hasError('required')">{{ label }} is required.</span>
+                <span *ngIf="linkedFormControl.hasError('minlength')">minlength</span>
+            </span>
+            <span *ngIf="linkedFormControl.hasError('maxlength')" float-right>{{ linkedFormControl.errors.maxlength.actualLength }} / {{ linkedFormControl.errors.maxlength.requiredLength }} </span>
+        </span>
+    </div>
+</div>

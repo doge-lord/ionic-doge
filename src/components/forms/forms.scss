@@ -1,2 +1,22 @@
 @import './helper-text/helper-text.component';
+@import './input/input.component';
 @import './signature-field/signature-field.component';
+
+ion-grid.form-grid {
+    padding: 0;
+
+    ion-col {
+        padding: 0;
+    }
+    
+    // .ios & {
+        
+    // }
+
+    .md & {
+        ion-item {
+            padding-right: $item-md-padding-right;
+        }
+    }
+
+}

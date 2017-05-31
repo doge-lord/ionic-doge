@@ -11,31 +11,33 @@
 
 <ion-content>
   <form [formGroup]="form" (submit)="submit(form)">
-    <ion-list>
-      <ion-list-header no-margin>
-        Action
-      </ion-list-header>
-      <ion-item padding-horizontal>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
-      </ion-item>
-      <div padding-horizontal>
-        <ion-doge-helper-text [linkedFormControl]="form.get('name')"></ion-doge-helper-text>
-      </div>
-      <ion-item padding-horizontal>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <ion-item class="item-signature" padding-left>
-        <ion-doge-signature formControlName="signature" label="Signature" [readonly]="false"></ion-doge-signature>
-      </ion-item>
-      <ion-item padding-horizontal>
-        <ion-label floating>Phone Number</ion-label>
-        <ion-input type="text" formControlName="phoneNumber"></ion-input>
-      </ion-item>
-      <div padding>
+    <ion-grid class="form-grid">
+      <ion-row>
+        <ion-col>
+          <ion-doge-input label="Name" [linkedFormControl]="form.get('name')" [required]="true" [maxLength]="20" [minLength]="5"></ion-doge-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-doge-input [linkedFormControl]="form.get('email')" label="Email"></ion-doge-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-sm-6 col-12>
+          <ion-doge-input [linkedFormControl]="form.get('address.city')" label="City"></ion-doge-input>
+        </ion-col>
+        <ion-col col-sm-3 col-6>
+          <ion-doge-input [linkedFormControl]="form.get('address.state')" label="State"></ion-doge-input>
+        </ion-col>
+        <ion-col col-sm-3 col-6>
+          <ion-doge-input [linkedFormControl]="form.get('address.zipCode')" label="Zip Code">
+            <span helper-text>5-digit zip code</span>
+          </ion-doge-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
         <button ion-button block type="submit" color="primary">Submit</button>
-      </div>
-    </ion-list>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
