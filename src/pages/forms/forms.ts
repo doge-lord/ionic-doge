@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { IonicPage } from 'ionic-angular';
 
 @IonicPage()
@@ -14,8 +14,8 @@ export class FormsPage {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      name: ['', Validators.email],
-      email: ['', Validators.compose([Validators.email, Validators.minLength(5)])],
+      name: [''],
+      email: [''],
       signature: [''],
       phoneNumber: [''],
       address: this.fb.group({

@@ -1,11 +1,11 @@
-import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, DoCheck, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'ion-doge-input',
     templateUrl: 'input.component.html',
 })
-export class IonDogeInput implements AfterViewInit {
+export class IonDogeInput implements DoCheck, AfterViewInit {
 
     @ViewChild('helperText') helperText: ElementRef;
 
@@ -19,13 +19,15 @@ export class IonDogeInput implements AfterViewInit {
     controlName: string;
     hasHelperText: boolean;
 
-    ngAfterViewInit() {
-        this.initFormGroup();
+    ngDoCheck() {
         this.initValidations();
     }
 
+    ngAfterViewInit() {
+        this.initFormGroup();
+    }
+
     private initFormGroup(): void {
-        console.log(this.linkedFormControl);
         if (this.linkedFormControl.parent instanceof FormGroup) {
             this.formGroup = this.linkedFormControl.parent;
             Object.keys(this.formGroup.controls).forEach((name) => {
@@ -37,8 +39,12 @@ export class IonDogeInput implements AfterViewInit {
     }
 
     private initValidations() {
+        let validators: any[] = [];
         this.hasHelperText = this.helperText.nativeElement.children.length > 0;
-        let validators: any[] = [this.linkedFormControl.validator];
+
+        if (this.linkedFormControl.validator) {
+            validators.push(this.linkedFormControl.validator);
+        }
 
         if (this.required) {
             validators.push(Validators.required);
@@ -52,7 +58,17 @@ export class IonDogeInput implements AfterViewInit {
             validators.push(Validators.maxLength(this.maxLength));
         }
 
-        this.linkedFormControl.setValidators(Validators.compose(validators));
+        setTimeout(_ => this.linkedFormControl.setValidators(Validators.compose(validators)));
+    }
+
+    displayCharacterCounter(): boolean{
+        let characterLength = this.linkedFormControl.value.length;
+
+        if (this.maxLength) {
+            return characterLength > this.maxLength * .75;
+        }
+
+        return false;
     }
 
 }

@@ -3,20 +3,17 @@
     font-size: 1.2rem;
     color: $list-border-color;
 
-    &:empty {
-        padding: 0;
-    }
-
     .md & {
         color: $label-md-text-color;
         padding-left: $item-md-padding-left;
+        padding-right: $item-md-padding-right; 
     }
 
     .ios & {
         padding-left: $item-ios-padding-left;
     }
 
-    &.error {
+    &.error, .error {
         color: color($colors, danger);
     }
 }

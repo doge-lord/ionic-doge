@@ -16,9 +16,9 @@
             </span>
             <span *ngIf="!hasHelperText">
                 <span *ngIf="linkedFormControl.hasError('required')">{{ label }} is required.</span>
-                <span *ngIf="linkedFormControl.hasError('minlength')">minlength</span>
+                <span *ngIf="linkedFormControl.hasError('minlength')">{{ label }} must be at least {{ minLength }} characters.</span>
             </span>
-            <span *ngIf="linkedFormControl.hasError('maxlength')" float-right>{{ linkedFormControl.errors.maxlength.actualLength }} / {{ linkedFormControl.errors.maxlength.requiredLength }} </span>
         </span>
+        <span *ngIf="displayCharacterCounter()" [ngClass]="{ 'error': linkedFormControl.hasError('maxlength') }" float-right>{{ linkedFormControl.value.length }} / {{ maxLength }} </span>
     </div>
 </div>
