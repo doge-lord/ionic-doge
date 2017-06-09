@@ -19,12 +19,15 @@ export class IonDogeInput implements DoCheck, AfterViewInit {
     controlName: string;
     hasHelperText: boolean;
 
+    private charCountThreshold;
+
     ngDoCheck() {
         this.initValidations();
     }
 
     ngAfterViewInit() {
         this.initFormGroup();
+        this.charCountThreshold = this.maxLength * .75;
     }
 
     private initFormGroup(): void {
@@ -61,11 +64,10 @@ export class IonDogeInput implements DoCheck, AfterViewInit {
         setTimeout(_ => this.linkedFormControl.setValidators(Validators.compose(validators)));
     }
 
-    displayCharacterCounter(): boolean{
-        let characterLength = this.linkedFormControl.value.length;
-
+    displayCharacterCounter(): boolean {
         if (this.maxLength) {
-            return characterLength > this.maxLength * .75;
+            let characterLength = this.linkedFormControl.value.length;
+            return characterLength > this.charCountThreshold;
         }
 
         return false;
